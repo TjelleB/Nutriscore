@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="345.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schule.nutriscore.NutriscoreController">
+   <children>
+      <Button fx:id="btnCalcScore" layoutX="13.0" layoutY="301.0" mnemonicParsing="false" onAction="#calculateScore" text="Berechnen" />
+      <Button fx:id="btnSave" layoutX="174.0" layoutY="301.0" mnemonicParsing="false" text="Speichern" />
+      <AnchorPane fx:id="pnInputs" layoutX="13.0" layoutY="49.0" prefHeight="225.0" prefWidth="250.0">
+         <children>
+            <Label layoutX="4.0" layoutY="1.0" text="Pro 100g">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <VBox alignment="TOP_CENTER" layoutX="130.0" layoutY="25.0" prefHeight="175.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="txtEnergie" />
+                  <TextField fx:id="txtZucker" />
+                  <TextField fx:id="txtFette" />
+                  <TextField fx:id="txtSalzNat" />
+                  <TextField fx:id="txtEiweis" />
+                  <TextField fx:id="txtBallast" />
+                  <TextField fx:id="txtGemuese" />
+               </children>
+            </VBox>
+            <VBox layoutX="4.0" layoutY="25.0" prefHeight="175.0" prefWidth="125.0" spacing="5.0">
+               <children>
+                  <Label text="Energie(kJ):">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Zucker:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Gesättigte Fette:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbSalzNat"  prefHeight="25.0" prefWidth="115.0" promptText="Salz/Natrium" >
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Salz"/>
+                           <String fx:value="Natrium"/>
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <Label text="Eiweis:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ballaststoffe:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Gemüse etc. (%)">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="600.0" spacing="75.0">
+         <children>
+            <ComboBox fx:id="cbType" onAction="#selectType" prefHeight="25.0" prefWidth="175.0" promptText="Wähle Nahrungstypen" >
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Allgemein"/>
+                  <String fx:value="Käse"/>
+                  <String fx:value="Zugesetzte Fette"/>
+                  <String fx:value="Getränk"/>
+               </FXCollections>
+            </items>
+         </ComboBox>
+            <Label text="Oder">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEAN" prefHeight="25.0" prefWidth="175.0" promptText="Gebe EAN ein" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <ImageView fx:id="ivScore" fitHeight="215.0" fitWidth="285.0" layoutX="300.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
