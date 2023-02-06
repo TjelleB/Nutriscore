@@ -13,4 +13,6 @@ public abstract class Nahrung {
     public Nahrung(int energie, double zucker, double gesaettigte_fette, double salz, double natrium, double eiweis, double ballast, double gemuese) {
 
     }
+
+    public abstract String calculateNutriscore();
 }
