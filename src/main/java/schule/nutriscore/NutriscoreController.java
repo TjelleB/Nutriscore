@@ -31,20 +31,27 @@ public class NutriscoreController {
     public double eiweis;
     public double ballast;
     public double gemuese;
-
+    public Button btnDiagram;
 
 
     public void calculateScore() {
         getValues();
         if(type == "Allgemein"){
             Allgemein nahrung = new Allgemein(energie,zucker,gesaettigte_fette,salz,natrium,eiweis,ballast,gemuese);
+            nahrung.calculateNutriscore();
         } else if (type == "Getraenk"){
             Getraenk nahrung = new Getraenk(energie,zucker,gesaettigte_fette,salz,natrium,eiweis,ballast,gemuese);
+            nahrung.calculateNutriscore();
         }else if (type == "Kaese"){
             Kaese nahrung = new Kaese(energie,zucker,gesaettigte_fette,salz,natrium,eiweis,ballast,gemuese);
+            nahrung.calculateNutriscore();
         }else if (type == "Zugesetzte Fette"){
             Fett nahrung = new Fett(energie,zucker,gesaettigte_fette,salz,natrium,eiweis,ballast,gemuese);
+            nahrung.calculateNutriscore();
+        }else if (type == "Wasser"){
+            ivScore.setImage(NutriscoreApplication.getImg(0));
         }
+
 
     }
 
@@ -64,7 +71,35 @@ public class NutriscoreController {
         gemuese = Double.parseDouble(txtGemuese.getText());
     }
 
+    public void searchByEan(){
+        disableInput();
+    }
+
     public void selectType() {
         type =  (String) cbType.getValue();
+        if (type == "Wasser"){
+            disableInput();
+        } else {
+            enableInput();
+        }
+    }
+
+    public void disableInput(){
+        txtBallast.setDisable(true);
+        txtEiweis.setDisable(true);
+        txtEnergie.setDisable(true);
+        txtFette.setDisable(true);
+        txtGemuese.setDisable(true);
+        txtSalzNat.setDisable(true);
+        txtZucker.setDisable(true);
+    }
+    public void enableInput(){
+        txtBallast.setDisable(false);
+        txtEiweis.setDisable(false);
+        txtEnergie.setDisable(false);
+        txtFette.setDisable(false);
+        txtGemuese.setDisable(false);
+        txtSalzNat.setDisable(false);
+        txtZucker.setDisable(false);
     }
 }

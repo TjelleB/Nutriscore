@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import org.controlsfx.property.editor.AbstractObjectField?>
 <AnchorPane prefHeight="425.0" prefWidth="400.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schule.nutriscore.NutriscoreController">
    <children>
       <AnchorPane fx:id="pnInputs" layoutX="25.0" layoutY="60.0" maxHeight="245.0" minHeight="225.0" prefHeight="245.0" prefWidth="350.0">
@@ -92,20 +93,18 @@
                   <String fx:value="Getraenk" />
                   <String fx:value="Kaese" />
                   <String fx:value="Zugesetzte Fette" />
+                  <String fx:value="Wasser"/>
                </FXCollections>
                </items>
             </ComboBox>
             <Label text="oder" />
             <TextField fx:id="txtEAN" prefHeight="25.0" prefWidth="175.0" promptText="Suche EAN" />
-            <Button mnemonicParsing="false" text="🔎" />
+            <Button fx:id="btnEan" mnemonicParsing="false" text="🔎" onAction="#searchByEan" />
          </children>
       </HBox>
       <HBox layoutX="50.0" layoutY="306.0" prefHeight="94.0" prefWidth="298.0" spacing="65.0">
          <children>
-            <ImageView fx:id="ivScore" fitHeight="94.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@2560px-Nutri-score-A.svg.png" />
-               </image></ImageView>
+            <ImageView fx:id="ivScore" fitHeight="94.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true"/>
             <VBox prefHeight="93.0" prefWidth="80.0" spacing="5.0">
                <children>
                   <Button fx:id="btnCalcScore" mnemonicParsing="false" onAction="#calculateScore" prefWidth="75.0" text="Berechnen" />

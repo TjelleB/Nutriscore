@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Nutriscore" target="0" />
+      <module name="Nutriscore" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>
